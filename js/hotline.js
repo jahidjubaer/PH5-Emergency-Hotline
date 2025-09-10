@@ -25,3 +25,25 @@ for (let index = 0; index < 9; index++) {
   });
 }
 
+// phone-call events 
+const phoneCallBtn = document.getElementsByClassName('phone-call-btn');
+const callText = document.getElementsByClassName('call-text');
+
+for(let index = 0; index < 9; index++){
+  phoneCallBtn[index].addEventListener('click', function(){
+    // call coins 
+    let coinCount = parseInt(document.getElementById('coin-count').innerText);
+    if(coinCount < 20) {
+      alert("❌ Can't make this call. minimum 20 coin required");
+      return;
+    }
+    
+    coinCount -= 20;
+    document.getElementById('coin-count').innerText = coinCount;
+
+    // calling
+    alert("📞 calling....... " + callText[index].innerText + " " + copyText[index].innerText);
+  })
+    
+}
+
